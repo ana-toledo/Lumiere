@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Newsletter{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="{% url 'home' %}"><img src="{% static 'logo.png' %}" alt="Logo da Newsletter"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Início</a></li>
+                <li><a href="{% url 'about' %}">Sobre</a></li>
+                <li><a href="{% url 'register' %}">Registro</a></li>
+                <li><a href="{% url 'contact' %}">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        {% include 'footer.html' %}
+    </footer>
+</body>
+</html>
