@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Lumière</title>
+    <title>LUMIÈRE - Sua Dose Semanal de Entretenimento Cinematográfico</title>
 </head>
 <body>
-    <h1>Lumière</h1>
-    <ul>
-        {% for filme in filmes %}
-        <li>{{ filme.titulo }} ({{ filme.ano }})</li>
-        {% endfor %}
-    </ul>
-    <a href="{{ url_for('subscribe') }}">Inscreva-se na Lumière!</a>
+    <div class="top-bar">
+        <h1>LUMIÈRE</h1>
+    </div>
+    <div class="content">
+        <h1>LUMIÈRE</h1>
+        <p>Sua Dose Semanal de Entretenimento Cinematográfico</p>
+        <a href="{{ url_for('subscribe') }}" class="subscribe-button">Inscreva-se</a>
+    </div>
 </body>
 </html>

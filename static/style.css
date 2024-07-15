@@ -1,33 +1,76 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Arial', sans-serif;
+    background-color: #333319;
+    color: #E5FFFF;
     margin: 0;
-    padding: 20px;
-}
-
-h1 {
-    color: #333;
-}
-
-ul {
-    list-style-type: none;
     padding: 0;
 }
 
-li {
-    background: #fff;
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #ddd;
+.top-bar {
+    background-color: #E5FFFF;
+    color: #333319;
+    padding: 10px 20px;
+    text-align: left;
+}
+
+.top-bar h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.content {
+    text-align: center;
+    margin-top: 20vh;
+}
+
+.content h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.subscribe-button {
+    background-color: #E5FFFF;
+    color: #333319;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.subscribe-button:hover {
+    background-color: #D4E6E6;
 }
 
 form {
-    background: #fff;
-    padding: 20px;
-    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-label, input {
-    display: block;
+form label, form input, form button {
+    font-size: 16px;
     margin: 10px 0;
+}
+
+form input {
+    padding: 10px;
+    width: 200px;
+}
+
+form button {
+    background-color: #E5FFFF;
+    color: #333319;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #D4E6E6;
 }
