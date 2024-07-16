@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Registro - LUMIÈRE</title>
+    <title>Assine a newsletter</title>
+    <link rel="icon" href="/static/logo.ico" type="image/x-icon">
 </head>
 <body>
     <div class="top-bar">
@@ -14,11 +15,12 @@
         </a>
     </div>
     <div class="content-sub">
-        <h2>Registro</h2>
+        <h2>Cadastre um email e tenha as melhores recomendações na sua caixa de entrada!</h2>
         <form method="POST">
-            <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
-            <button type="submit">Registrar</button>
+            <div class="content-sub-button">
+                <button type="submit">Registrar</button>
+            </div>
         </form>
     </div>
 </body>

@@ -1,46 +1,86 @@
+@font-face {
+    font-family: 'MinhaFontePersonalizada';
+    src: url('static/The Seasons.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'The Seasons', serif;
     background-color: #333319;
     color: #E5FFFF;
     margin: 0;
     padding: 0;
+    letter-spacing: 1px;
+    line-height: 150%;
 }
 
 .top-bar {
     background-color: #E5FFFF;
     color: #333319;
-    padding: 10px 20px;
-    text-align: left;
+    display: flex;
+    align-items: left;
+}
+
+div.top-bar img {
+    width: 52px;
+    height: 54px;
+    padding-left: 120px;
+    padding-top: 8px;
 }
 
 .top-bar h1 {
     margin: 0;
-    font-size: 24px;
+    font-size: 30px;
+    padding-top: 1.75%;
+    padding-left: 1.8%;
+    order: 2;
+}
+
+.sign-button-bar {
+    order: 3;
+    padding-left: 850px;
+    padding-top:3.8vmin;
 }
 
 .content-home {
     text-align: center;
-    margin-top: 20vh;
+    margin-top: 5vh;
 }
 
-.content-sub {
-    text-align: left;
-    margin-top: 20vh;
+div.content-home img {
+    width: 150px;
+    height: 152px;
 }
 
-.content h1 {
-    font-size: 48px;
-    margin-bottom: 10px;
+.content-home h1 {
+    color:#E5FFFF;
+    font-size: 60px;
+    margin-bottom: 7vh;
 }
 
-.content p {
-    font-size: 18px;
-    margin-bottom: 20px;
+.content-home p {
+    font-size: 22px;
+    margin-bottom: 7vh;
+    margin-top: 6vh;
+    color: white;
 }
 
 .subscribe-button {
     background-color: #E5FFFF;
-    color: #333319;
+    color: rgb(46, 44, 44);
+    padding: 15px 70px;
+    text-decoration: none;
+    font-size: 22px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    
+}
+
+.sign-button {
+    background-color: #333319;
+    color: #E5FFFF;
     padding: 10px 20px;
     text-decoration: none;
     font-size: 16px;
@@ -49,19 +89,31 @@ body {
     border-radius: 20px;
 }
 
+.content-sub {
+    text-align: left;
+    margin-top: 12vh;
+    margin-left: 10vw;
+}
+
+.content-sub h2 {
+    text-align: justify;
+    padding-right: 600px;
+    color: white;
+}
+
 .subscribe-button:hover {
     background-color: #D4E6E6;
 }
 
-div.top-bar img {
-    width: 50px;
-    height: 50px;
+.sign-button:hover {
+    background-color: #505027;
 }
+
 
 form {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
 }
 
 form label, form input, form button {
@@ -71,7 +123,8 @@ form label, form input, form button {
 
 form input {
     padding: 10px;
-    width: 200px;
+    width: 250px;
+    border-radius: 15px;
 }
 
 form button {
@@ -80,6 +133,8 @@ form button {
     padding: 10px 20px;
     border: none;
     cursor: pointer;
+    border-radius: 15px;
+    width: 150px;
 }
 
 form button:hover {
