@@ -1,2 +1,2 @@
 # Lumière
-Newsletter de filmes desenvolvida com a framework web de Python, Flask
+Newsletter de filmes desenvolvida com a framework web Flask
