@@ -16,12 +16,38 @@
     </div>
     <div class="content-sub">
         <h2>Cadastre um email e tenha as melhores recomendações na sua caixa de entrada!</h2>
-        <form method="POST">
-            <input type="email" id="email" name="email" required>
+        <form id="registerForm" method="POST">
+            <input type="email" id="email" placeholder="exemplo@exemplo.com" name="email" required>
+            <fieldset>
+                <legend><h3>Gostaria de receber conteúdo extra sobre esses temas?</h3></legend>
+                <div class="content-selection">
+                    <div class="content-checkbox">
+                        <input type="checkbox" id="topico" name="classico" value="classico"/>
+                        
+                        <input type="checkbox" id="topico" name="familiar" value="familiar"/>
+                        
+                        <input type="checkbox" id="topico" name="terror" value="terror"/>
+                        
+                    </div>
+                    <div class="content-label">
+                        <label for="classico">Clássicos</label>
+                        <label for="familiar">Para toda a família</label>
+                        <label for="terror">Terror</label>
+                    </div>
+                </div>
+            </fieldset>
             <div class="content-sub-button">
                 <button type="submit">Registrar</button>
             </div>
         </form>
     </div>
+    <script>
+        const form = document.getElementById('registerForm');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Email cadastrado com sucesso!');
+        });
+    </script>
+
 </body>
 </html>
