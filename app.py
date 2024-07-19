@@ -13,10 +13,15 @@ def index():
 def subscribe():
     if request.method == 'POST':
         email = request.form['email']
-        # Envia o email recebido para o banco de dados
+        topicos = request.form.getlist('topico')
+        familia = 1 if "familiar" in topicos else 0
+        terror = 1 if "terror" in topicos else 0
+        classico = 1 if "classico" in topicos else 0
+
+        # Conecta o banco de dados
         conn = sqlite3.connect('database.db')
         c = conn.cursor()
-        c.execute('INSERT INTO user_emails (email) VALUES (?)', (email,))
+        c.execute('INSERT INTO user_info (email, familia, terror, classico) VALUES (?, ?, ?, ?)', (email, familia, terror, classico))
         conn.commit()
         conn.close()
 
