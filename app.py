@@ -1,5 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for
 import sqlite3
+from ClassicoDecorator import ClassicoDecorator
+from FamiliarDecorator import FamiliarDecorator
+from TerrorDecorator import TerrorDecorator
+from ConcreteEmailSender import ConcreteEmailSender
 
 app = Flask(__name__)
 
@@ -7,7 +11,6 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template('index.html')
-
 
 @app.route('/subscribe', methods=['GET', 'POST'])
 def subscribe():
@@ -28,6 +31,18 @@ def subscribe():
         return redirect(url_for('index'))
     return render_template('subscribe.html')
 
+@app.route('/send', methods=['FAMILIAR', 'CLASSICO', 'TERROR'])
+def send():
+    sender = ConcreteEmailSender(username='newsl_lumiere@gmail.com', password='cinefilopretencioso')
+    if request.method == 'FAMILIAR':
+        familiar_sender = FamiliarDecorator(sender)
+        familiar_sender.send()
+    if request.method == 'CLASSICO':
+        classico_sender = ClassicoDecorator(sender)
+        classico_sender.send()
+    if request.method == 'TERROR':
+        terror_sender = TerrorDecorator(sender)
+        terror_sender.send()
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -10,5 +10,5 @@ class ESDecorator(EmailSender):
     def emailsender(self):
         return self._emailsender
 
-    def send(self):
-        return self._emailsender.send()
+    def send(self, body, recipients):
+        return self._emailsender.send(body, recipients)
