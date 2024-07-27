@@ -31,18 +31,20 @@ def subscribe():
         return redirect(url_for('index'))
     return render_template('subscribe.html')
 
-@app.route('/send', methods=['FAMILIAR', 'CLASSICO', 'TERROR'])
+@app.route('/send')
 def send():
-    sender = ConcreteEmailSender(username='newsl_lumiere@gmail.com', password='cinefilopretencioso')
-    if request.method == 'FAMILIAR':
+    letter_type = request.args.get('type')
+    sender = ConcreteEmailSender(username='newsl.lumiere@gmail.com', password='rvio zovh votm olth')
+    if letter_type == 'FAMILIAR':
         familiar_sender = FamiliarDecorator(sender)
         familiar_sender.send()
-    if request.method == 'CLASSICO':
+    if letter_type == 'CLASSICO':
         classico_sender = ClassicoDecorator(sender)
         classico_sender.send()
-    if request.method == 'TERROR':
+    if letter_type == 'TERROR':
         terror_sender = TerrorDecorator(sender)
         terror_sender.send()
+        return render_template('send.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
