@@ -38,13 +38,16 @@ def send():
     if letter_type == 'FAMILIAR':
         familiar_sender = FamiliarDecorator(sender)
         familiar_sender.send()
+        text = 'newsletter familiar enviada'
     if letter_type == 'CLASSICO':
         classico_sender = ClassicoDecorator(sender)
         classico_sender.send()
+        text = 'newsletter classica enviada'
     if letter_type == 'TERROR':
         terror_sender = TerrorDecorator(sender)
         terror_sender.send()
-        return render_template('send.html')
+        text = 'newsletter de terror enviada'
+    return render_template('send.html', text=text)
 
 if __name__ == '__main__':
     app.run(debug=True)
