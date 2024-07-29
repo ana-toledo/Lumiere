@@ -40,7 +40,7 @@ def subscribe():
 @app.route('/send')
 def send():
     letter_type = request.args.get('type')
-    sender = ConcreteEmailSender(username='newsl.lumiere@gmail.com', password=os.getenv('PASSWORD'))
+    sender = ConcreteEmailSender(username='newsl.lumiere@gmail.com', password='rvio zovh votm olth')
 
     # manda a newsletter familiar
     familiar_sender = FamiliarDecorator(sender)
@@ -51,6 +51,8 @@ def send():
     # manda a newsletter de terror
     terror_sender = TerrorDecorator(sender)
     terror_sender.send()
+    # manda a newsletter base
+    sender.send()
     return render_template('send.html', text='Newsletter enviada')
 
 if __name__ == '__main__':
