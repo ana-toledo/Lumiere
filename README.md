@@ -65,6 +65,8 @@ Este projeto está licenciado sob a licença MIT - veja o arquivo LICENSE para m
 ## Capturas de Tela
 
 ### Página Inicial
+![Página Inicial](static/Tela Inicial.png)
 
 ### Página de Inscrição
+![Página Inicial](static/Tela Inscricao.png)
 
