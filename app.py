@@ -4,6 +4,7 @@ from ClassicoDecorator import ClassicoDecorator
 from FamiliarDecorator import FamiliarDecorator
 from TerrorDecorator import TerrorDecorator
 from ConcreteEmailSender import ConcreteEmailSender
+import os
 
 app = Flask(__name__)
 
@@ -39,20 +40,18 @@ def subscribe():
 @app.route('/send')
 def send():
     letter_type = request.args.get('type')
-    sender = ConcreteEmailSender(username='newsl.lumiere@gmail.com', password='rvio zovh votm olth')
-    if letter_type == 'FAMILIAR':
-        familiar_sender = FamiliarDecorator(sender)
-        familiar_sender.send()
-        text = 'newsletter familiar enviada'
-    if letter_type == 'CLASSICO':
-        classico_sender = ClassicoDecorator(sender)
-        classico_sender.send()
-        text = 'newsletter classica enviada'
-    if letter_type == 'TERROR':
-        terror_sender = TerrorDecorator(sender)
-        terror_sender.send()
-        text = 'newsletter de terror enviada'
-    return render_template('send.html', text=text)
+    sender = ConcreteEmailSender(username='newsl.lumiere@gmail.com', password=os.getenv('PASSWORD'))
+
+    # manda a newsletter familiar
+    familiar_sender = FamiliarDecorator(sender)
+    familiar_sender.send()
+    # manda a newsletter clássica
+    classico_sender = ClassicoDecorator(sender)
+    classico_sender.send()
+    # manda a newsletter de terror
+    terror_sender = TerrorDecorator(sender)
+    terror_sender.send()
+    return render_template('send.html', text='Newsletter enviada')
 
 if __name__ == '__main__':
     app.run(debug=True)
