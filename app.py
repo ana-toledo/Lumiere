@@ -1,5 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for
 import sqlite3
+from ClassicoDecorator import ClassicoDecorator
+from FamiliarDecorator import FamiliarDecorator
+from TerrorDecorator import TerrorDecorator
+from ConcreteEmailSender import ConcreteEmailSender
 
 app = Flask(__name__)
 
@@ -32,6 +36,23 @@ def subscribe():
         return redirect(url_for('end'))
     return render_template('subscribe.html')
 
+@app.route('/send')
+def send():
+    letter_type = request.args.get('type')
+    sender = ConcreteEmailSender(username='newsl.lumiere@gmail.com', password='rvio zovh votm olth')
+    if letter_type == 'FAMILIAR':
+        familiar_sender = FamiliarDecorator(sender)
+        familiar_sender.send()
+        text = 'newsletter familiar enviada'
+    if letter_type == 'CLASSICO':
+        classico_sender = ClassicoDecorator(sender)
+        classico_sender.send()
+        text = 'newsletter classica enviada'
+    if letter_type == 'TERROR':
+        terror_sender = TerrorDecorator(sender)
+        terror_sender.send()
+        text = 'newsletter de terror enviada'
+    return render_template('send.html', text=text)
 
 if __name__ == '__main__':
     app.run(debug=True)

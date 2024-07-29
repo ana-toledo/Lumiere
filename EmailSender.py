@@ -1,3 +1,3 @@
 class EmailSender:
-    def send(self):
+    def send(self, body, recipients):
         pass
