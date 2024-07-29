@@ -4,6 +4,7 @@ from ClassicoDecorator import ClassicoDecorator
 from FamiliarDecorator import FamiliarDecorator
 from TerrorDecorator import TerrorDecorator
 from ConcreteEmailSender import ConcreteEmailSender
+import os
 
 app = Flask(__name__)
 
@@ -39,8 +40,8 @@ def subscribe():
 @app.route('/send')
 def send():
     letter_type = request.args.get('type')
-    sender = ConcreteEmailSender(username='newsl.lumiere@gmail.com', password='rvio zovh votm olth')
-    
+    sender = ConcreteEmailSender(username='newsl.lumiere@gmail.com', password=os.getenv('PASSWORD'))
+
     # manda a newsletter familiar
     familiar_sender = FamiliarDecorator(sender)
     familiar_sender.send()
