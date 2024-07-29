@@ -12,6 +12,11 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/success')
+def end():
+    return render_template('end.html')
+
+
 @app.route('/subscribe', methods=['GET', 'POST'])
 def subscribe():
     if request.method == 'POST':
@@ -28,7 +33,7 @@ def subscribe():
         conn.commit()
         conn.close()
 
-        return redirect(url_for('index'))
+        return redirect(url_for('end'))
     return render_template('subscribe.html')
 
 @app.route('/send')

@@ -175,3 +175,13 @@ fieldset {
     margin-bottom: 20px;
 }
 
+.content-end{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+.content-end h2{
+    text-align: center;
+}
