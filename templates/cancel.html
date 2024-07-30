@@ -11,5 +11,30 @@
         <input type="password" id="password" placeholder="senha" name="password" required>
         <button type="submit" class="cancel-button">Confirmar</button>
     </form>
+    <div class="content-cancel-flash">
+        {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    var messages = ({ messages,tojson });
+                    messages.forEach(function(message) {
+                        var type = message[0];
+                        var text = message[1];
+                        var popup = document.createElement('div');
+                        popup.className = 'popup ' + type;
+                        popup.innerText = text;
+                        document.body.appendChild(popup);
+                        setTimeout(function() {
+                            popup.style.opacity = '0';
+                            setTimeout(function() {
+                                document.body.removeChild(popup);
+                            }, 500);
+                        }, 3000);
+                    });
+                });
+            </script>
+        {% endif %}
+    {% endwith %}
+    </div>
 </div>
 {% endblock %}

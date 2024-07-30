@@ -76,6 +76,14 @@ def cancel():
                 c.execute('DELETE FROM user_info WHERE email = ?', (emailtbc,))
         conn.commit()
         conn.close()
+        # Nessa parte precisa adicionar uma função que checa o sucesso ou fracasso
+        # if success:
+        #    flash('Cancelamento realizado. Sentiremos sua falta', 'success')
+        #else:
+        #    flash('Erro no cancelamento. Tente novamente.', 'error')
+
+        #Acho que o popup que eu fiz ta errado, vou dar o push e qualquer coisa é só deletar a div
+
         # Volta para a home
         return redirect(url_for('index'))
     return render_template('cancel.html')
