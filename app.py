@@ -22,6 +22,7 @@ def end():
 def subscribe():
     if request.method == 'POST':
         email = request.form['email']
+        password = request.form['password']
         topicos = request.form.getlist('topico')
         familia = 1 if "familiar" in topicos else 0
         terror = 1 if "terror" in topicos else 0
@@ -30,7 +31,7 @@ def subscribe():
         # Conecta o banco de dados
         conn = sqlite3.connect('database.db')
         c = conn.cursor()
-        c.execute('INSERT INTO user_info (email, familia, terror, classico) VALUES (?, ?, ?, ?)', (email, familia, terror, classico))
+        c.execute('INSERT INTO user_info (email, familia, terror, classico, password) VALUES (?, ?, ?, ?, ?)', (email, familia, terror, classico, password))
         conn.commit()
         conn.close()
 
@@ -54,6 +55,30 @@ def send():
     # manda a newsletter base
     sender.send()
     return render_template('send.html', text='Newsletter enviada')
+
+@app.route('/cancel', methods=['GET', 'POST'])
+def cancel():
+    if request.method == 'POST':
+        # Recebe os inputs do usuário
+        emailtbc = request.form['email']
+        passwordtbc = request.form['password']
+        # Conecta ao banco de dados
+        conn = sqlite3.connect('database.db')
+        c = conn.cursor()
+        # Procura a linha do email fornecido
+        c.execute('SELECT password FROM user_info WHERE email=?', (emailtbc,))
+        result = c.fetchone()
+        if result:
+            passwordtbt = result[0]
+            # Compara a senha fornecida com a encontrada no banco de dados
+            if passwordtbt == passwordtbc:
+                # Deleta a linha da database
+                c.execute('DELETE FROM user_info WHERE email = ?', (emailtbc,))
+        conn.commit()
+        conn.close()
+        # Volta para a home
+        return redirect(url_for('index'))
+    return render_template('cancel.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
