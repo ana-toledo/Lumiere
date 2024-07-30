@@ -8,6 +8,7 @@ c.execute('''
     CREATE TABLE IF NOT EXISTS user_info (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         email TEXT NOT NULL,
+        password TEXT NOT NULL,
         familia BIT NOT NULL,
         terror BIT NOT NULL,
         classico BIT NOT NULL
