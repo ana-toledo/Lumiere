@@ -3,26 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/style.css">
-    <title>Lumière - Cancelar Assinatura</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Cancelar inscrição</title>
     <link rel="icon" href="/static/logo.ico" type="image/x-icon">
 </head>
 <body>
     <div class="top-bar">
-        <div class="logo">
-            <a href="/">
-                <img src="/static/logo.png" alt="Claquete">
-            </a>
-        </div>
         <h1>LUMIÈRE</h1>
+        <a href="{{ url_for('index') }}">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Claquete">
+        </a>
     </div>
-    <div class="content-cancel">
-        <h2>Cancelar Assinatura</h2>
-        <p>Por favor, confirme seu email e seu cancelamento:</p>
-        <form method="post">
+    <div class="content-sub">
+        <h2>Confirme seu email e senha para confirmar o cancelamento:</h2>
+        <form method="POST">
             <input type="email" id="email" placeholder="exemplo@exemplo.com" name="email" required>
-            <input type="password" id="password" name="password" required>
-            <button type="submit" class="cancel-button">Desinscrever-se</button>
+            <input type="password" id="password" placeholder="senha" name="password" minlength="6" required>
+            <div class="content-sub-button">
+                <button type="submit">Cancelar</button>
+            </div>
         </form>
     </div>
 </body>

@@ -56,6 +56,14 @@ def send():
     sender.send()
     return render_template('send.html', text='Newsletter enviada')
 
+@app.route('/usernotfound')
+def usernotfound():
+    return render_template('usernotfound.html')
+
+@app.route('/canceled')
+def canceled():
+    return render_template('canceled.html')
+
 @app.route('/cancel', methods=['GET', 'POST'])
 def cancel():
     if request.method == 'POST':
