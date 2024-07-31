@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Sucesso!</title>
+    <link rel="icon" href="/static/logo.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="top-bar">
+        <h1>LUMIÈRE</h1>
+        <a href="{{ url_for('index') }}">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Claquete">
+        </a>
+    </div>
+    <div class="content-end">
+        <h2>Email ou senha incorreta!</h2>
+    </div>
+</body>
+</html>

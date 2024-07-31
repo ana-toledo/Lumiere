@@ -74,10 +74,15 @@ def cancel():
             if passwordtbt == passwordtbc:
                 # Deleta a linha da database
                 c.execute('DELETE FROM user_info WHERE email = ?', (emailtbc,))
+                conn.commit()
+                conn.close()
+                return redirect(url_for('canceled'))
+            conn.commit()
+            conn.close()
+            return redirect(url_for('usernotfound'))
         conn.commit()
         conn.close()
-        # Volta para a home
-        return redirect(url_for('index'))
+        return redirect(url_for('usernotfound'))
     return render_template('cancel.html')
 
 if __name__ == '__main__':
