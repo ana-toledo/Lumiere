@@ -1,20 +1,7 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Enviar newsletter</title>
-    <link rel="icon" href="/static/logo.ico" type="image/x-icon">
-</head>
+{% extends 'layout.html' %}
 
-<body>
-    <div class="top-bar">
-        <h1>LUMIÈRE</h1>
-        <a href="{{ url_for('index') }}">
-            <img src="{{ url_for('static', filename='logo.png') }}" alt="Claquete">
-        </a>
-    </div>
-    <p> {{ text }} </p>
-</body>
-</html>
+{% block title %}Lumière - Enviar newsletter{% endblock %}
+
+{% block content %}
+<p>{{ text }}</p>
+{% endblock %}
