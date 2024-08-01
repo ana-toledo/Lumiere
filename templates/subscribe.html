@@ -1,46 +1,31 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Assine a newsletter</title>
-    <link rel="icon" href="/static/logo.ico" type="image/x-icon">
-</head>
-<body>
-    <div class="top-bar">
-        <h1>LUMIÈRE</h1>
-        <a href="{{ url_for('index') }}">
-            <img src="{{ url_for('static', filename='logo.png') }}" alt="Claquete">
-        </a>
-    </div>
-    <div class="content-sub">
-        <h2>Cadastre um email e tenha as melhores recomendações na sua caixa de entrada!</h2>
-        <form method="POST">
-            <input type="email" id="email" placeholder="exemplo@exemplo.com" name="email" required>
-            <input type="password" id="password" placeholder="senha" name="password" minlength="6" required>
-            <fieldset>
-                <legend><h3>Gostaria de receber conteúdo extra sobre esses temas?</h3></legend>
-                <div class="content-selection">
-                    <div class="content-checkbox">
-                        <input type="checkbox" id="topico" name="topico" value="classico"/>
+{% extends 'layout.html' %}
 
-                        <input type="checkbox" id="topico" name="topico" value="familiar"/>
+{% block title %}Lumière - Assine a newsletter{% endblock %}
 
-                        <input type="checkbox" id="topico" name="topico" value="terror"/>
-
-                    </div>
-                    <div class="content-label">
-                        <label for="classico">Clássicos</label>
-                        <label for="familiar">Para toda a família</label>
-                        <label for="terror">Terror</label>
-                    </div>
+{% block content %}
+<div class="content-sub">
+    <h2>Cadastre um email e tenha as melhores recomendações na sua caixa de entrada!</h2>
+    <form method="POST">
+        <input type="email" id="email" placeholder="exemplo@exemplo.com" name="email" required>
+        <input type="password" id="password" placeholder="senha" name="password" minlength="6" required>
+        <fieldset>
+            <legend><h3>Gostaria de receber conteúdo extra sobre esses temas?</h3></legend>
+            <div class="content-selection">
+                <div class="content-checkbox">
+                    <input type="checkbox" id="classico" name="topico" value="classico"/>
+                    <input type="checkbox" id="familiar" name="topico" value="familiar"/>
+                    <input type="checkbox" id="terror" name="topico" value="terror"/>
                 </div>
-            </fieldset>
-            <div class="content-sub-button">
-                <button type="submit">Registrar</button>
+                <div class="content-label">
+                    <label for="classico">Clássicos</label>
+                    <label for="familiar">Para toda a família</label>
+                    <label for="terror">Terror</label>
+                </div>
             </div>
-        </form>
-    </div>
-</body>
-</html>
+        </fieldset>
+        <div class="content-sub-button">
+            <button type="submit">Registrar</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
