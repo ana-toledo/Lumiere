@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Cancelar inscrição</title>
+    <title>Sucesso!</title>
     <link rel="icon" href="/static/imgs/logo.ico" type="image/x-icon">
 </head>
 <body>
@@ -14,15 +14,8 @@
             <img src="{{ url_for('static', filename='imgs/logo.png') }}" alt="Claquete">
         </a>
     </div>
-    <div class="content-sub">
-        <h2>Confirme seu email e senha para confirmar o cancelamento:</h2>
-        <form method="POST">
-            <input type="email" id="email" placeholder="exemplo@exemplo.com" name="email" required>
-            <input type="password" id="password" placeholder="senha" name="password" minlength="6" required>
-            <div class="content-sub-button">
-                <button type="submit">Cancelar</button>
-            </div>
-        </form>
+    <div class="content-end">
+        <h2>Desinscrição realizada com sucesso!</h2>
     </div>
 </body>
 </html>

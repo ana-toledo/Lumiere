@@ -56,6 +56,14 @@ def send():
     sender.send()
     return render_template('send.html', text='Newsletter enviada')
 
+@app.route('/usernotfound')
+def usernotfound():
+    return render_template('usernotfound.html')
+
+@app.route('/canceled')
+def canceled():
+    return render_template('canceled.html')
+
 @app.route('/cancel', methods=['GET', 'POST'])
 def cancel():
     if request.method == 'POST':
@@ -74,18 +82,15 @@ def cancel():
             if passwordtbt == passwordtbc:
                 # Deleta a linha da database
                 c.execute('DELETE FROM user_info WHERE email = ?', (emailtbc,))
+                conn.commit()
+                conn.close()
+                return redirect(url_for('canceled'))
+            conn.commit()
+            conn.close()
+            return redirect(url_for('usernotfound'))
         conn.commit()
         conn.close()
-        # Nessa parte precisa adicionar uma função que checa o sucesso ou fracasso
-        # if success:
-        #    flash('Cancelamento realizado. Sentiremos sua falta', 'success')
-        #else:
-        #    flash('Erro no cancelamento. Tente novamente.', 'error')
-
-        #Acho que o popup que eu fiz ta errado, vou dar o push e qualquer coisa é só deletar a div
-
-        # Volta para a home
-        return redirect(url_for('index'))
+        return redirect(url_for('usernotfound'))
     return render_template('cancel.html')
 
 @app.errorhandler(404)
