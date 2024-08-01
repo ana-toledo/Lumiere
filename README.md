@@ -4,7 +4,7 @@ Lumière é uma newsletter de filmes criada com Flask, SQLite3, HTML e CSS. Este
 
 ## Descrição
 
-Lumière é uma aplicação web que permite aos usuários se inscreverem em uma newsletter sobre filmes. O backend é desenvolvido em Flask, o banco de dados utilizado é o SQLite3, e o frontend é construído com HTML e CSS.
+Lumière é uma aplicação web que permite aos usuários se inscreverem em uma newsletter sobre filmes. O backend é desenvolvido em Flask, o banco de dados utilizado é o SQLite3, e o frontend é construído com HTML e CSS. Sua estrutura é composta por uma homepage, uma tela de inscrição e uma tela que permite o cancelamento da assinatura.
 
 ## Instalação
 
