@@ -41,7 +41,8 @@ def subscribe():
 @app.route('/send')
 def send():
     letter_type = request.args.get('type')
-    sender = ConcreteEmailSender(username='newsl.lumiere@gmail.com', password='rvio zovh votm olth')
+    passw = os.getenv('PASSWORD')
+    sender = ConcreteEmailSender(username='newsl.lumiere@gmail.com', password=passw)
 
     # manda a newsletter familiar
     familiar_sender = FamiliarDecorator(sender)
