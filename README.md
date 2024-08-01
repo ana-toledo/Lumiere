@@ -31,7 +31,7 @@ Lumière é uma aplicação web que permite aos usuários se inscreverem em uma 
 3. Instale as dependências:
 
     ```bash
-    pip install -r requirements.txt
+    pip install -r sqlite3 smtplib flask
     ```
 
 4. Configure o banco de dados:
