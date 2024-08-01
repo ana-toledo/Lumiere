@@ -11,8 +11,6 @@ Lumière é uma aplicação web que permite aos usuários se inscreverem em uma 
 ### Pré-requisitos
 
 - Python 3.x
-- Pip (gerenciador de pacotes do Python)
-- Virtualenv (recomendado)
 
 ### Passos
 
